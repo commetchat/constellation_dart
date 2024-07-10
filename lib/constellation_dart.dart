@@ -7,10 +7,20 @@
 
 import 'dart:ffi';
 import 'dart:io';
+import 'dart:ui';
 
 import 'constellation_dart_bindings_generated.dart';
 
-int sum(int a, int b) => _bindings.sum(a, b);
+void setCursorPosition(String id, double x, double y) =>
+    _bindings.setCursorPosition(id, x, y);
+
+void setCursorColor(String id, Color color) =>
+    _bindings.setCursorColor(id, color);
+
+void setWindow(int id) => _bindings.setWindow(id);
+
+void createCursor(String key, String displayName) =>
+    _bindings.createCursor(key, displayName);
 
 int main() => _bindings.main();
 
