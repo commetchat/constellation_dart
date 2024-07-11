@@ -17,7 +17,9 @@ void setCursorPosition(String id, double x, double y) =>
 void setCursorColor(String id, Color color) =>
     _bindings.setCursorColor(id, color);
 
-void setWindow(int id) => _bindings.setWindow(id);
+void setWindow(String id) => _bindings.setWindow(id);
+
+void setDisplay(String id) => _bindings.setDisplay(id);
 
 void createCursor(String key, String displayName) =>
     _bindings.createCursor(key, displayName);

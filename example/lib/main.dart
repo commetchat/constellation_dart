@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                   child: Text("Start")),
               TextButton(
                   onPressed: () {
-                    constellation_dart.setWindow(0x106000f8);
+                    constellation_dart.setDisplay("eDP-1");
                     constellation_dart.createCursor(
                         "id_1", "Hello from flutter!");
                     constellation_dart.setCursorColor("id_1", Colors.amber);

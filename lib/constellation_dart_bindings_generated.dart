@@ -17,9 +17,16 @@ class ConstellationDartBindings {
       : _lookup = lookup;
 
   late final _setWindowPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.UnsignedLong)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Uint8>)>>(
           '_constellation_set_window');
-  late final _setWindow = _setWindowPtr.asFunction<void Function(int)>();
+  late final _setWindow =
+      _setWindowPtr.asFunction<void Function(ffi.Pointer<ffi.Uint8>)>();
+
+  late final _setDisplayPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Uint8>)>>(
+          '_constellation_set_display');
+  late final _setDisplay =
+      _setDisplayPtr.asFunction<void Function(ffi.Pointer<ffi.Uint8>)>();
 
   late final _mainPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function()>>('_constellation_start');
@@ -82,8 +89,16 @@ class ConstellationDartBindings {
     malloc.free(keyPtr);
   }
 
-  void setWindow(int id) {
-    return _setWindow(id);
+  void setWindow(String id) {
+    var idPtr = id.toNativeUtf8();
+    _setWindow(idPtr.cast());
+    malloc.free(idPtr);
+  }
+
+  void setDisplay(String id) {
+    var idPtr = id.toNativeUtf8();
+    _setDisplay(idPtr.cast());
+    malloc.free(idPtr);
   }
 
   int main() {
