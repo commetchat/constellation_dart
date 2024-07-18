@@ -8,6 +8,6 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 
 
 set(constellation_dart_bundled_libraries
-  "${CMAKE_CURRENT_SOURCE_DIR}/../platform/linux_x64/libconstellation.so"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../native/lib/linux_x64/libconstellation.so"
   PARENT_SCOPE
 )

@@ -27,4 +27,5 @@ migrate_working_dir/
 **/doc/api/
 .dart_tool/
 build/
-platform/linux_x64/libconstellation.so
+native/lib/linux_x64/libconstellation.so
+native/lib/windows_x64/constellation.dll
